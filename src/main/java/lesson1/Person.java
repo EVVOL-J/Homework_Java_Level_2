@@ -14,17 +14,18 @@ public class Person implements Actions {
 
     @Override
     public int run() {
-        System.out.println("Человек " + name+ " бежит " + maxRun);
+        System.out.println("Человек " + name + " бежит " + maxRun);
         return maxRun;
     }
 
     @Override
     public int jump() {
-        System.out.println("Человек " + name+ " прыгает " + maxJump);
+        System.out.println("Человек " + name + " прыгает " + maxJump);
         return maxJump;
     }
+
     @Override
-    public String infoName(){
+    public String infoName() {
         return name;
     }
 }

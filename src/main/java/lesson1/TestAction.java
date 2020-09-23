@@ -31,13 +31,13 @@ public class TestAction {
                 if (droppedOut) break;
                 for (Obstacles obsIn : obsOut) {
                     if (!obsIn.overcameObstacles(act)) {
-                        System.out.println("Участник "+ act.infoName() + " выбыл \n");
+                        System.out.println("Участник " + act.infoName() + " выбыл \n");
                         droppedOut = true;
                         break;
                     }
                 }
             }
-            if(!droppedOut) winList.append(act.infoName()+"\n");
+            if (!droppedOut) winList.append(act.infoName() + "\n");
         }
         System.out.println(winList);
 

@@ -24,8 +24,9 @@ public class Cat implements Actions {
         System.out.println("Кот " + name+ " прыгает " + maxJump);
         return maxJump;
     }
+
     @Override
-    public String infoName(){
+    public String infoName() {
         return name;
     }
 }
