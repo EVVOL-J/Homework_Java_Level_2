@@ -2,13 +2,30 @@ package Lesson1;
 
 public class Cat implements Actions {
 
-    @Override
-    public void run(int runLength) {
-        System.out.println("Кот пробежал"+runLength);
+    private String name;
+    private int maxRun;
+    private int maxJump;
+
+    public Cat (String name, int maxRun, int maxJump) {
+        this.maxRun = maxRun;
+        this.maxJump = maxJump;
+        this.name = name;
+
     }
 
     @Override
-    public void swim(int swimLength) {
-        System.out.println("Кот проплыл"+ swimLength);
+    public int run() {
+        System.out.println("Кот " + name+ " бежит " + maxRun);
+        return maxRun;
+    }
+
+    @Override
+    public int jump() {
+        System.out.println("Кот " + name+ " прыгает " + maxJump);
+        return maxJump;
+    }
+    @Override
+    public String infoName(){
+        return name;
     }
 }
