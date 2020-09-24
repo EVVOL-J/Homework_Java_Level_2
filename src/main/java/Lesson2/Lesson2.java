@@ -21,7 +21,7 @@ public class Lesson2 {
 
                 for (j = 0; j < arr[i].length; j++) {
                     if (arr.length != 4 || arr[i].length != 4)
-                        throw new MyArraySizeException("Размер массива отличается от 4x4 или массив не равномерный\n");
+                        throw new MyArraySizeException("Размер массива отличается от 4x4 или массив не равномерный \n");
                     sum += Integer.parseInt(arr[i][j]);
                 }
             }
