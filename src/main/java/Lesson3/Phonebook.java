@@ -18,7 +18,7 @@ public class Phonebook {
 
     public void getNumber(String name) {
 
-        System.out.println(name + "-" + book.getOrDefault(name, new HashSet<>()));
+        System.out.println(name + ":" + book.getOrDefault(name, new HashSet<>()));
     }
 
 }
