@@ -2,8 +2,8 @@ package Lesson2;
 
 public class MyArraySizeException extends RuntimeException{
 
-    public MyArraySizeException(String string){
-        System.out.printf(string);
+    public MyArraySizeException(){
+        super("Размер массива отличается от 4x4 или массив не равномерный \n");
     }
 
 }

@@ -1,45 +1,40 @@
 package Lesson2;
 
 public class Lesson2 {
+    private static final int REFERENCE_ARRAY_SIZE=4;
     public static void main(String[] args) {
-        String[][] arr = {{"1", "2", "3", "4"}, {"1", "2", "3", "f"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}};
-        System.out.println(sumIntArr(arr));
-        String[][] arr1 = {{"1", "2", "3"}, {"1", "2", "3", "f"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}};
-        System.out.println(sumIntArr(arr1));
-        String[][] arr2 = {{"1", "2", "3", "4"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}};
-        System.out.println(sumIntArr(arr2));
-
-
-    }
-
-    private static boolean sumIntArr(String[][] arr) {
-        int sum = 0;
-        int i = 0;
-        int j = 0;
+        String[][] Error_Data_Array = {{"1", "2", "3", "4"}, {"1", "2", "3", "f"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}};
+        String[][] Error_Size_Array = {{"1", "2", "3"}, {"1", "2", "3", "f"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}};
+        String[][] Correct_Array = {{"1", "2", "3", "4"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}};
         try {
-            for (i = 0; i < arr.length; i++) {
-
-                for (j = 0; j < arr[i].length; j++) {
-                    if (arr.length != 4 || arr[i].length != 4)
-                        throw new MyArraySizeException("Размер массива отличается от 4x4 или массив не равномерный \n");
-                    sum += Integer.parseInt(arr[i][j]);
-                }
-            }
-            System.out.println("Сумма равна= "+sum);
-            return true;
-
-        } catch (MyArraySizeException e) {
-            return false;
-
-        } catch (NumberFormatException e) {
-            try {
-                throw new MyArrayDataException("Элемент ["+i+"]["+j+"] не является целым\n");
-            } catch (MyArrayDataException e1) {
-                return false;
-            }
-
+            System.out.println("Сумма массива равна= " + sumIntArr(Error_Size_Array));
+        }
+        catch (MyArraySizeException e){
+            System.out.println("Ошибка в размере массива");
+            System.out.println(e.getMessage());
+            e.printStackTrace();
 
         }
+        catch (MyArrayDataException e){
+            System.out.println("Ошибка конвертации элемента массива в целое число");
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    private static int sumIntArr(String[][] arr) throws MyArrayDataException,MyArraySizeException {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                if (arr.length != REFERENCE_ARRAY_SIZE || arr[i].length != REFERENCE_ARRAY_SIZE) throw new MyArraySizeException();
+                try {
+                    sum += Integer.parseInt(arr[i][j]);
+                } catch (NumberFormatException e) {
+                    throw new MyArrayDataException(i, j);
+                }
+            }
+        }
+        return sum;
     }
 }
 
